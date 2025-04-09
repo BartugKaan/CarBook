@@ -43,7 +43,7 @@ namespace CarBook.WebApi.Controllers
         {
             var value = await _getBannerByIdQueryHandler.Handle(new GetBannerByIdQuery(id));
             return Ok(value);
-        }
+        }   
 
         [HttpPost]
         public async Task<IActionResult> CreateBanner(CreateBannerCommand command)
