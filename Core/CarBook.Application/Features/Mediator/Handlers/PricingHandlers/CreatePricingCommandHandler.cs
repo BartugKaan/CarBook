@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.PricingHandlers
 {
-    public class CreatePricingCommandLocation : IRequestHandler<CreatePricingCommand>
+    public class CreatePricingCommandHandler : IRequestHandler<CreatePricingCommand>
     {
         private readonly IRepository<Pricing> _repository;
 
-        public CreatePricingCommandLocation(IRepository<Pricing> repository)
+        public CreatePricingCommandHandler(IRepository<Pricing> repository)
         {
             _repository = repository;
         }
