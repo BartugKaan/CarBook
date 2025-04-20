@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Commands.LocationCommands
+namespace CarBook.Application.Features.Mediator.Commands.PricingCommands
 {
-    public class RemoveLocationCommand: IRequest
+    public class RemovePricingCommand: IRequest
     {
         public int Id { get; set; }
 
-        public RemoveLocationCommand(int id)
+        public RemovePricingCommand(int id)
         {
             Id = id;
         }
