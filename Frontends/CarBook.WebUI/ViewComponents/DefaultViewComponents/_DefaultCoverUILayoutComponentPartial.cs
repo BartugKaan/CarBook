@@ -1,15 +1,14 @@
-﻿using CarBook.DTO.CarDtos;
-using CarBook.DTO.TestimonialDtos;
+﻿using CarBook.DTO.BannerDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace CarBook.WebUI.ViewComponents.TestimonialViewComponent
+namespace CarBook.WebUI.ViewComponents.DefaultViewComponents
 {
-    public class _TestimonialComponentPartial : ViewComponent
+    public class _DefaultCoverUILayoutComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _TestimonialComponentPartial(IHttpClientFactory httpClientFactory)
+        public _DefaultCoverUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,12 +16,12 @@ namespace CarBook.WebUI.ViewComponents.TestimonialViewComponent
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7114/api/Testimonial");
+            var responseMessage = await client.GetAsync("https://localhost:7114/api/Banners");
 
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultTestimonialDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultBannerDto>>(jsonData);
                 return View(values);
 
             }
