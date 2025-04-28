@@ -1,6 +1,5 @@
 ﻿using CarBook.Application.Features.Mediator.Queries.CarPricingQueries;
 using CarBook.Application.Features.Mediator.Results.CarPricingResult;
-using CarBook.Application.Features.Mediator.Results.LocationResults;
 using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
 using MediatR;
@@ -21,7 +20,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.CarPricingHandlers
             _repository = repository;
         }
 
-        public async  Task<List<GetCarPricingWithCarQueryResult>> Handle(GetCarPricingWithCarQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetCarPricingWithCarQueryResult>> Handle(GetCarPricingWithCarQuery request, CancellationToken cancellationToken)
         {
             var values =  _repository.GetCarPricingWithCars();
             return values.Select(x => new GetCarPricingWithCarQueryResult
