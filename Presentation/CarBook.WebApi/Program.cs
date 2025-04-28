@@ -7,11 +7,13 @@ using CarBook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterfaces;
 using CarBook.Application.Interfaces.CarInterfaces;
+using CarBook.Application.Interfaces.CarPricingInterfaces;
 using CarBook.Application.Interfaces.CarRepositories;
 using CarBook.Application.Services;
 using CarBook.Persistance.Context;
 using CarBook.Persistance.Repositories;
 using CarBook.Persistance.Repositories.BlogRepositories;
+using CarBook.Persistance.Repositories.CarPricingRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
 
 
 builder.Services.AddScoped<GetBannerQueryHandler>();

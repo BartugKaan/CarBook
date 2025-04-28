@@ -85,6 +85,5 @@ namespace CarBook.WebApi.Controllers
             var values = _getLastFiveCarsWithBrandQueryHandler.Handle();
             return Ok(values);
         }
-
     }
 }
